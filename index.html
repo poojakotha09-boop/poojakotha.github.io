@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Inter&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
@@ -14,42 +14,44 @@
 <body>
 
 <!-- NAVBAR -->
-<nav>
-    <h2>Kotha Usha</h2>
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</nav>
+<header class="navbar">
+    <div class="logo">Kotha Usha</div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
 
-<!-- HOME -->
-<section id="home" class="section hero">
-    <h1>Kotha Usha</h1>
-    <h3>Integrated M.Tech (Software Engineering)</h3>
-    <p>
-        AI & Machine Learning Enthusiast passionate about building
-        intelligent systems and real-world software solutions.
-    </p>
+<!-- HERO -->
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h1>Kotha Usha</h1>
+        <h3>Integrated M.Tech – Software Engineering</h3>
+        <p>
+            AI & Machine Learning Enthusiast with hands-on experience
+            in intelligent systems, automation, and FinTech applications.
+        </p>
 
-    <div class="buttons">
-        <a href="resume.pdf" class="btn primary" download>Download Resume</a>
-        <a href="#" class="btn outline">GitHub</a>
-        <a href="#" class="btn outline">LinkedIn</a>
+        <div class="hero-buttons">
+            <a href="resume.pdf" class="btn primary" download>Download Resume</a>
+            <a href="#" class="btn outline">GitHub</a>
+            <a href="#" class="btn outline">LinkedIn</a>
+        </div>
     </div>
 </section>
 
 <!-- ABOUT -->
 <section id="about" class="section">
     <h2>About Me</h2>
-    <p>
+    <p class="section-text">
         I am an Integrated M.Tech student in Software Engineering at
         VIT-AP University with a CGPA of 9.12.
-        I have hands-on experience in Artificial Intelligence,
-        Machine Learning, and Multimodal AI systems.
+        My interests include Artificial Intelligence, Machine Learning,
+        Multimodal AI,C, and real-world problem solving through software.
     </p>
 </section>
 
@@ -57,7 +59,7 @@
 <section id="skills" class="section light">
     <h2>Skills</h2>
 
-    <div class="skills">
+    <div class="skills-grid">
         <span>Python</span>
         <span>Java</span>
         <span>HTML</span>
@@ -75,42 +77,51 @@
 <section id="projects" class="section">
     <h2>Projects</h2>
 
-    <div class="project-card">
-        <h3>Automation Billing System (Patent)</h3>
+    <div class="project">
+        <h3>Automation Billing System <span>• Patent</span></h3>
         <p>
-            Developed an automated billing system using camera-based
-            product recognition with ESP32-CAM and machine learning.
+            Automated billing using camera-based product recognition.
+            Implemented real-time image capture with ESP32-CAM and
+            machine learning-based classification.
         </p>
-        <small>Python | ML | ESP32-CAM</small>
+        <small>Python • Machine Learning • ESP32-CAM</small>
     </div>
 
-    <div class="project-card">
-        <h3>Multimodal AI Interview Simulator</h3>
+    <div class="project">
+        <h3>Multimodal AI-Driven Interview Simulator</h3>
         <p>
-            Built an AI-driven interview simulator providing
-            real-time feedback using NLP and speech analysis.
+            Developed an AI-based interview platform providing
+            real-time feedback using NLP, speech analysis,
+            and behavioral assessment.
         </p>
-        <small>AI | NLP | Speech Analysis</small>
+        <small>AI • NLP • Speech Analysis</small>
     </div>
 
-    <div class="project-card">
-        <h3>FinTech Finance & Stock Forecasting</h3>
+    <div class="project">
+        <h3>FinTech Finance & Stock Forecasting System</h3>
         <p>
-            Developed a finance management system and stock
-            trend prediction using machine learning models.
+            Built a finance management system with stock trend
+            prediction using machine learning models
+            trained on historical data.
         </p>
-        <small>Python | ML | FinTech</small>
+        <small>Python • Machine Learning • FinTech</small>
     </div>
 </section>
 
 <!-- EDUCATION -->
 <section id="education" class="section light">
     <h2>Education</h2>
-    <ul>
-        <li><strong>Integrated M.Tech (Software Engineering)</strong> – VIT-AP (CGPA: 9.12)</li>
-        <li><strong>Intermediate</strong> – Sri Chaitanya Junior College (97.1%)</li>
-        <li><strong>SSC</strong> – SPR School of Excellence (100%)</li>
-    </ul>
+
+    <div class="education">
+        <p><strong>Integrated M.Tech – Software Engineering</strong><br>
+           VIT-AP University (2022–2027) • CGPA: 9.12</p>
+
+        <p><strong>Intermediate</strong><br>
+           Sri Chaitanya Junior College • 97.1%</p>
+
+        <p><strong>Secondary School</strong><br>
+           SPR School of Excellence • 100%</p>
+    </div>
 </section>
 
 <!-- CONTACT -->
@@ -122,7 +133,7 @@
 </section>
 
 <footer>
-    <p>© 2026 Kotha Usha</p>
+    <p>© 2026 Kotha Usha | Portfolio</p>
 </footer>
 
 </body>
