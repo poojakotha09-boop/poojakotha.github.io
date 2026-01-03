@@ -1,140 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Kotha Usha | Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>Kotha Usha | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <!-- NAVBAR -->
 <header class="navbar">
-    <div class="logo">Kotha Usha</div>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
-    </nav>
+  <div class="logo">Kotha Usha</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <button id="themeToggle">🌙</button>
 </header>
 
 <!-- HERO -->
-<section id="home" class="hero">
-    <div class="hero-content">
-        <h1>Kotha Usha</h1>
-        <h3>Integrated M.Tech – Software Engineering</h3>
-        <p>
-            AI & Machine Learning Enthusiast with hands-on experience
-            in intelligent systems, automation, and FinTech applications.
-        </p>
+<section id="home" class="hero reveal">
+  <h1>Kotha Usha</h1>
+  <h3>Integrated M.Tech – Software Engineering</h3>
+  <p>
+    AI & Machine Learning Enthusiast building
+    intelligent, real-world software systems.
+  </p>
 
-        <div class="hero-buttons">
-            <a href="resume.pdf" class="btn primary" download>Download Resume</a>
-            <a href="#" class="btn outline">GitHub</a>
-            <a href="#" class="btn outline">LinkedIn</a>
-        </div>
-    </div>
+  <div class="hero-buttons">
+    <a href="resume.pdf" class="btn primary" download>Download Resume</a>
+    <a href="https://github.com/YOUR_GITHUB" class="btn outline">GitHub</a>
+    <a href="https://linkedin.com/in/YOUR_LINKEDIN" class="btn outline">LinkedIn</a>
+  </div>
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="section">
-    <h2>About Me</h2>
-    <p class="section-text">
-        I am an Integrated M.Tech student in Software Engineering at
-        VIT-AP University with a CGPA of 9.12.
-        My interests include Artificial Intelligence, Machine Learning,
-        Multimodal AI,C, and real-world problem solving through software.
-    </p>
+<section id="about" class="section reveal">
+  <h2>About Me</h2>
+  <p>
+    I am an Integrated M.Tech student in Software Engineering
+    at VIT-AP University with a CGPA of 9.12.
+    My focus areas include Artificial Intelligence,
+    Machine Learning, Multimodal AI, and applied problem solving.
+  </p>
 </section>
 
 <!-- SKILLS -->
-<section id="skills" class="section light">
-    <h2>Skills</h2>
-
-    <div class="skills-grid">
-        <span>Python</span>
-        <span>Java</span>
-        <span>HTML</span>
-        <span>CSS</span>
-        <span>JavaScript</span>
-        <span>MySQL</span>
-        <span>Machine Learning</span>
-        <span>Artificial Intelligence</span>
-        <span>NLP</span>
-        <span>Multimodal AI</span>
-    </div>
+<section id="skills" class="section light reveal">
+  <h2>Skills</h2>
+  <div class="skills-grid">
+    <span>Python</span><span>Java</span><span>Machine Learning</span>
+    <span>Artificial Intelligence</span><span>NLP</span>
+    <span>Multimodal AI</span><span>HTML</span><span>CSS</span>
+    <span>JavaScript</span><span>MySQL</span>
+  </div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="section">
-    <h2>Projects</h2>
+<section id="projects" class="section reveal">
+  <h2>Projects</h2>
 
-    <div class="project">
-        <h3>Automation Billing System <span>• Patent</span></h3>
-        <p>
-            Automated billing using camera-based product recognition.
-            Implemented real-time image capture with ESP32-CAM and
-            machine learning-based classification.
-        </p>
-        <small>Python • Machine Learning • ESP32-CAM</small>
+  <div class="project-card">
+    <h3>Automation Billing System <span>• Patent</span></h3>
+    <p>
+      Automated billing using camera-based product recognition
+      with ESP32-CAM and ML classification.
+    </p>
+    <div class="project-links">
+      <a href="#" class="btn small">GitHub</a>
     </div>
+  </div>
 
-    <div class="project">
-        <h3>Multimodal AI-Driven Interview Simulator</h3>
-        <p>
-            Developed an AI-based interview platform providing
-            real-time feedback using NLP, speech analysis,
-            and behavioral assessment.
-        </p>
-        <small>AI • NLP • Speech Analysis</small>
+  <div class="project-card">
+    <h3>Multimodal AI Interview Simulator</h3>
+    <p>
+      AI-driven interview platform with NLP,
+      speech analysis, and behavioral feedback.
+    </p>
+    <div class="project-links">
+      <a href="#" class="btn small">GitHub</a>
     </div>
+  </div>
 
-    <div class="project">
-        <h3>FinTech Finance & Stock Forecasting System</h3>
-        <p>
-            Built a finance management system with stock trend
-            prediction using machine learning models
-            trained on historical data.
-        </p>
-        <small>Python • Machine Learning • FinTech</small>
+  <div class="project-card">
+    <h3>FinTech Finance & Stock Forecasting</h3>
+    <p>
+      Expense tracking and stock prediction system
+      using machine learning on historical data.
+    </p>
+    <div class="project-links">
+      <a href="#" class="btn small">GitHub</a>
     </div>
-</section>
-
-<!-- EDUCATION -->
-<section id="education" class="section light">
-    <h2>Education</h2>
-
-    <div class="education">
-        <p><strong>Integrated M.Tech – Software Engineering</strong><br>
-           VIT-AP University (2022–2027) • CGPA: 9.12</p>
-
-        <p><strong>Intermediate</strong><br>
-           Sri Chaitanya Junior College • 97.1%</p>
-
-        <p><strong>Secondary School</strong><br>
-           SPR School of Excellence • 100%</p>
-    </div>
+  </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="section">
-    <h2>Contact</h2>
-    <p>Email: ushakotha09@gmail.com</p>
-    <p>Phone: +91 99633 31365</p>
-    <p>Location: Hyderabad, Telangana</p>
+<section id="contact" class="section reveal">
+  <h2>Contact</h2>
+  <p>Email: ushakotha09@gmail.com</p>
+  <p>Hyderabad, Telangana</p>
 </section>
 
 <footer>
-    <p>© 2026 Kotha Usha | Portfolio</p>
+  © 2026 Kotha Usha
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
