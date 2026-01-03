@@ -5,175 +5,70 @@
   <title>Projects | Kotha Usha</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <!-- IMPORTANT: correct CSS link -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Inter&display=swap" rel="stylesheet">
 </head>
 
 <body class="dark-theme">
 
-<!-- TOP NAV -->
-<header class="navbar dark-nav">
+<header class="navbar">
   <div class="logo">Kotha Usha</div>
   <nav>
     <a href="index.html">Home</a>
+    <a href="about.html">About</a>
     <a href="skills.html">Skills</a>
     <a class="active" href="projects.html">Projects</a>
     <a href="contact.html">Contact</a>
   </nav>
 </header>
 
-<!-- DASHBOARD -->
-<div class="dashboard">
+<section class="projects-section">
+  <h1>Projects</h1>
+  <p class="subtitle">
+    Selected software projects demonstrating real-world problem solving,
+    system design, and application development.
+  </p>
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <h3>Portfolio</h3>
-    <ul>
-      <li class="active">📁 Projects</li>
-      <li>⚙️ Skills</li>
-      <li>📄 Resume</li>
-    </ul>
-  </aside>
-
-  <!-- MAIN CONTENT -->
-  <main class="main-content">
-
-    <div class="dashboard-header">
-      <h2>Projects Overview</h2>
-      <span class="subtext">Selected high-impact software systems</span>
-    </div>
-
-    <div class="dashboard-grid">
-
-      <!-- PROJECT 1 -->
-      <div class="dashboard-card featured reveal">
-        <div class="card-top">
-          <h3>Automation Billing System</h3>
-          <span class="status patent">PATENT</span>
-        </div>
-
-        <p>
-          Automated checkout system that reduces manual billing using
-          intelligent product recognition and a software-driven workflow.
-        </p>
-
-        <div class="tags">
-          <span>Python</span>
-          <span>ESP32-CAM</span>
-          <span>Machine Learning</span>
-        </div>
-
-        <div class="card-actions">
-          <button onclick="openModal('billing')">View</button>
-        </div>
-      </div>
-
-      <!-- PROJECT 2 -->
-      <div class="dashboard-card reveal">
-        <div class="card-top">
-          <h3>AI Interview Simulator</h3>
-          <span class="status live">ACTIVE</span>
-        </div>
-
-        <p>
-          Web-based interview simulation platform that provides
-          structured practice and intelligent feedback.
-        </p>
-
-        <div class="tags">
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>JavaScript</span>
-          <span>Python</span>
-          <span>AI / NLP</span>
-        </div>
-
-        <div class="card-actions">
-          <button onclick="openModal('interview')">View</button>
-        </div>
-      </div>
-
-      <!-- PROJECT 3 -->
-      <div class="dashboard-card reveal">
-        <div class="card-top">
-          <h3>FinTech Forecasting System</h3>
-          <span class="status stable">STABLE</span>
-        </div>
-
-        <p>
-          Finance management system with expense tracking and
-          stock trend forecasting using machine learning.
-        </p>
-
-        <div class="tags">
-          <span>Python</span>
-          <span>Data Analysis</span>
-          <span>Machine Learning</span>
-        </div>
-
-        <div class="card-actions">
-          <button onclick="openModal('fintech')">View</button>
-        </div>
-      </div>
-
-    </div>
-  </main>
-</div>
-
-<!-- MODAL -->
-<div id="projectModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">×</span>
-    <h3 id="modalTitle"></h3>
-    <p id="modalText"></p>
+  <div class="project-card">
+    <h3>Automation Billing System <span class="badge">PATENT</span></h3>
+    <p>
+      Developed an automated billing system to reduce manual checkout
+      using intelligent product recognition and software-driven workflows.
+    </p>
+    <p class="tech">
+      Python · ESP32-CAM · Machine Learning
+    </p>
   </div>
-</div>
 
-<footer class="dark-footer">
+  <div class="project-card">
+    <h3>Multimodal AI-Powered Interview Simulator</h3>
+    <p>
+      Web-based interview simulation platform providing structured practice
+      and intelligent feedback in a realistic environment.
+    </p>
+    <p class="tech">
+      HTML · CSS · JavaScript · Python · AI / NLP
+    </p>
+  </div>
+
+  <div class="project-card">
+    <h3>FinTech Finance Management & Stock Forecasting</h3>
+    <p>
+      Finance management system with expense tracking and
+      stock trend forecasting using machine learning.
+    </p>
+    <p class="tech">
+      Python · Data Analysis · Machine Learning
+    </p>
+  </div>
+</section>
+
+<footer>
   © 2026 Kotha Usha
 </footer>
-
-<!-- JS -->
-<script>
-  const reveals = document.querySelectorAll('.reveal');
-
-  function revealOnScroll() {
-    reveals.forEach(el => {
-      const top = el.getBoundingClientRect().top;
-      if (top < window.innerHeight - 100) {
-        el.classList.add('active');
-      }
-    });
-  }
-  window.addEventListener('scroll', revealOnScroll);
-  revealOnScroll();
-
-  const projectData = {
-    billing: {
-      title: "Automation Billing System (Patent)",
-      text: "Automated checkout system using camera-based product recognition. Designed for real-time billing and reliability. Awarded a Government of India Design Patent."
-    },
-    interview: {
-      title: "AI Interview Simulator",
-      text: "A web-based interview practice platform providing intelligent feedback on responses and communication flow."
-    },
-    fintech: {
-      title: "FinTech Forecasting System",
-      text: "Finance management software with expense tracking and stock trend forecasting using machine learning."
-    }
-  };
-
-  function openModal(key) {
-    document.getElementById("modalTitle").innerText = projectData[key].title;
-    document.getElementById("modalText").innerText = projectData[key].text;
-    document.getElementById("projectModal").style.display = "block";
-  }
-
-  function closeModal() {
-    document.getElementById("projectModal").style.display = "none";
-  }
-</script>
 
 </body>
 </html>
