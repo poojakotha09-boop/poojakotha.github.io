@@ -6,111 +6,174 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Inter&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter&family=Poppins:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
-<!-- NAVBAR -->
-<header class="navbar">
+<body class="dark-theme">
+
+<!-- TOP NAV -->
+<header class="navbar dark-nav">
   <div class="logo">Kotha Usha</div>
   <nav>
     <a href="index.html">Home</a>
-    <a href="about.html">About</a>
     <a href="skills.html">Skills</a>
-    <a href="projects.html" class="active">Projects</a>
+    <a class="active" href="projects.html">Projects</a>
     <a href="contact.html">Contact</a>
   </nav>
 </header>
 
-<!-- PROJECTS SECTION -->
-<section class="page">
-  <h2>Projects</h2>
-  <p class="page-subtitle">
-    Selected software projects demonstrating real-world problem solving,
-    system design, and application development.
-  </p>
+<!-- DASHBOARD -->
+<div class="dashboard">
 
-  <!-- PROJECT 1 -->
-  <div class="card">
-    <h3>
-      Automation Billing System
-      <span class="highlight">(Design Patent)</span>
-    </h3>
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h3>Portfolio</h3>
+    <ul>
+      <li class="active">📁 Projects</li>
+      <li>⚙️ Skills</li>
+      <li>📄 Resume</li>
+    </ul>
+  </aside>
 
-    <p>
-      Developed an automated billing system aimed at reducing manual
-      checkout processes through intelligent product recognition
-      and software-driven billing workflows.
-    </p>
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
 
-    <p>
-      Implemented backend logic to process recognized items and
-      generate bills automatically, with a strong focus on
-      system reliability and real-time performance.
-      The project was successfully demonstrated and awarded
-      a registered design patent by the Government of India.
-    </p>
+    <div class="dashboard-header">
+      <h2>Projects Overview</h2>
+      <span class="subtext">Selected high-impact software systems</span>
+    </div>
 
-    <p class="tech">
-      <strong>Tech Stack:</strong>
-      Python, Embedded Systems (ESP32-CAM), Machine Learning
-    </p>
+    <div class="dashboard-grid">
+
+      <!-- PROJECT 1 -->
+      <div class="dashboard-card featured reveal">
+        <div class="card-top">
+          <h3>Automation Billing System</h3>
+          <span class="status patent">PATENT</span>
+        </div>
+
+        <p>
+          Automated checkout system that reduces manual billing using
+          intelligent product recognition and a software-driven workflow.
+        </p>
+
+        <div class="tags">
+          <span>Python</span>
+          <span>ESP32-CAM</span>
+          <span>Machine Learning</span>
+        </div>
+
+        <div class="card-actions">
+          <button onclick="openModal('billing')">View</button>
+        </div>
+      </div>
+
+      <!-- PROJECT 2 -->
+      <div class="dashboard-card reveal">
+        <div class="card-top">
+          <h3>AI Interview Simulator</h3>
+          <span class="status live">ACTIVE</span>
+        </div>
+
+        <p>
+          Web-based interview simulation platform that provides
+          structured practice and intelligent feedback.
+        </p>
+
+        <div class="tags">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+          <span>Python</span>
+          <span>AI / NLP</span>
+        </div>
+
+        <div class="card-actions">
+          <button onclick="openModal('interview')">View</button>
+        </div>
+      </div>
+
+      <!-- PROJECT 3 -->
+      <div class="dashboard-card reveal">
+        <div class="card-top">
+          <h3>FinTech Forecasting System</h3>
+          <span class="status stable">STABLE</span>
+        </div>
+
+        <p>
+          Finance management system with expense tracking and
+          stock trend forecasting using machine learning.
+        </p>
+
+        <div class="tags">
+          <span>Python</span>
+          <span>Data Analysis</span>
+          <span>Machine Learning</span>
+        </div>
+
+        <div class="card-actions">
+          <button onclick="openModal('fintech')">View</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<!-- MODAL -->
+<div id="projectModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">×</span>
+    <h3 id="modalTitle"></h3>
+    <p id="modalText"></p>
   </div>
+</div>
 
-  <!-- PROJECT 2 -->
-  <div class="card">
-    <h3>Multimodal AI-Powered Interview Simulator</h3>
-
-    <p>
-      Designed and developed a web-based interview simulation
-      platform that enables users to practice interviews
-      in a structured and realistic environment.
-    </p>
-
-    <p>
-      The system evaluates user responses and communication flow
-      using intelligent analysis techniques and provides
-      real-time feedback, while maintaining a clean and
-      user-centric application design.
-    </p>
-
-    <p class="tech">
-      <strong>Tech Stack:</strong>
-      HTML, CSS, JavaScript, Python, AI / NLP
-    </p>
-  </div>
-
-  <!-- PROJECT 3 -->
-  <div class="card">
-    <h3>FinTech Finance Management & Stock Forecasting System</h3>
-
-    <p>
-      Developed a finance management software system to track
-      personal expenses and generate structured financial insights
-      through an organized and intuitive interface.
-    </p>
-
-    <p>
-      Implemented a stock trend forecasting module using
-      machine learning techniques applied to historical data,
-      focusing on clean data handling and modular software design.
-    </p>
-
-    <p class="tech">
-      <strong>Tech Stack:</strong>
-      Python, Data Analysis, Machine Learning
-    </p>
-  </div>
-
-</section>
-
-<!-- FOOTER -->
-<footer>
+<footer class="dark-footer">
   © 2026 Kotha Usha
 </footer>
+
+<!-- JS -->
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+
+  function revealOnScroll() {
+    reveals.forEach(el => {
+      const top = el.getBoundingClientRect().top;
+      if (top < window.innerHeight - 100) {
+        el.classList.add('active');
+      }
+    });
+  }
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll();
+
+  const projectData = {
+    billing: {
+      title: "Automation Billing System (Patent)",
+      text: "Automated checkout system using camera-based product recognition. Designed for real-time billing and reliability. Awarded a Government of India Design Patent."
+    },
+    interview: {
+      title: "AI Interview Simulator",
+      text: "A web-based interview practice platform providing intelligent feedback on responses and communication flow."
+    },
+    fintech: {
+      title: "FinTech Forecasting System",
+      text: "Finance management software with expense tracking and stock trend forecasting using machine learning."
+    }
+  };
+
+  function openModal(key) {
+    document.getElementById("modalTitle").innerText = projectData[key].title;
+    document.getElementById("modalText").innerText = projectData[key].text;
+    document.getElementById("projectModal").style.display = "block";
+  }
+
+  function closeModal() {
+    document.getElementById("projectModal").style.display = "none";
+  }
+</script>
 
 </body>
 </html>
