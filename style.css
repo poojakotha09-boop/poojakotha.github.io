@@ -1,161 +1,139 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+  --bg: #ffffff;
+  --text: #1e293b;
+  --primary: #38bdf8;
+  --nav: #0f172a;
+}
+
+body.dark {
+  --bg: #0f172a;
+  --text: #e5e7eb;
+  --nav: #020617;
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    color: #1e293b;
-    background: #ffffff;
-    line-height: 1.6;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: all 0.3s ease;
 }
 
 /* NAVBAR */
 .navbar {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: #0f172a;
-    color: #ffffff;
-    padding: 15px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  position: sticky;
+  top: 0;
+  background: var(--nav);
+  color: white;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navbar a {
-    color: #ffffff;
-    margin-left: 20px;
-    text-decoration: none;
-    font-weight: 500;
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
 }
 
-.logo {
-    font-family: 'Poppins', sans-serif;
-    font-size: 20px;
+#themeToggle {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: white;
 }
 
 /* HERO */
 .hero {
-    min-height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 40px;
+  min-height: 90vh;
+  text-align: center;
+  padding: 60px 20px;
 }
 
 .hero h1 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 40px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 42px;
 }
 
 .hero h3 {
-    color: #38bdf8;
-    margin: 10px 0;
-}
-
-.hero p {
-    max-width: 600px;
-    margin: 20px auto;
+  color: var(--primary);
 }
 
 .hero-buttons {
-    margin-top: 25px;
+  margin-top: 25px;
 }
 
 /* BUTTONS */
 .btn {
-    padding: 12px 22px;
-    border-radius: 6px;
-    margin: 5px;
-    text-decoration: none;
-    font-weight: 500;
+  padding: 12px 22px;
+  border-radius: 6px;
+  text-decoration: none;
+  margin: 5px;
 }
 
 .primary {
-    background: #38bdf8;
-    color: #ffffff;
+  background: var(--primary);
+  color: white;
 }
 
 .outline {
-    border: 2px solid #38bdf8;
-    color: #38bdf8;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+
+.small {
+  font-size: 14px;
 }
 
 /* SECTIONS */
 .section {
-    padding: 70px 40px;
-    text-align: center;
-}
-
-.section h2 {
-    font-family: 'Poppins', sans-serif;
-    margin-bottom: 20px;
-}
-
-.section-text {
-    max-width: 700px;
-    margin: auto;
+  padding: 80px 40px;
+  text-align: center;
 }
 
 .light {
-    background: #f1f5f9;
+  background: rgba(0,0,0,0.03);
 }
 
 /* SKILLS */
 .skills-grid span {
-    display: inline-block;
-    padding: 10px 16px;
-    margin: 8px;
-    background: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    font-size: 14px;
+  display: inline-block;
+  padding: 10px 16px;
+  margin: 6px;
+  border-radius: 20px;
+  background: var(--bg);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 /* PROJECTS */
-.project {
-    max-width: 750px;
-    margin: 25px auto;
-    padding: 25px;
-    border-radius: 12px;
-    background: #ffffff;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    text-align: left;
+.project-card {
+  max-width: 750px;
+  margin: 25px auto;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  text-align: left;
 }
 
-.project span {
-    color: #38bdf8;
-    font-size: 14px;
+.project-card span {
+  color: var(--primary);
 }
 
-/* EDUCATION */
-.education p {
-    max-width: 700px;
-    margin: 15px auto;
+/* ANIMATION */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.6s ease;
 }
 
-/* FOOTER */
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 footer {
-    background: #0f172a;
-    color: #ffffff;
-    text-align: center;
-    padding: 20px;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-    }
-
-    .navbar nav {
-        margin-top: 10px;
-    }
-
-    .hero h1 {
-        font-size: 32px;
-    }
+  text-align: center;
+  padding: 20px;
 }
