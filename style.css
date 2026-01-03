@@ -54,51 +54,55 @@ nav a.active {
 }
 
 /* =====================================================
-   HERO SECTION (HOME)
+   HERO SECTION — PERFECT CENTERING
 ===================================================== */
 .hero {
-  min-height: calc(100vh - 70px);
+  min-height: calc(100vh - 70px); /* subtract navbar height */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px;
+  padding: 40px 20px;
 }
 
-.hero-content {
-  max-width: 800px;
+.hero-wrapper {
+  max-width: 750px;
   text-align: center;
 }
 
-.hero-content h1 {
+/* Headings */
+.hero-wrapper h1 {
   font-family: 'Poppins', sans-serif;
-  font-size: 42px;
+  font-size: 44px;
   margin-bottom: 12px;
 }
 
-.hero-content h1 span {
+.hero-wrapper h1 span {
   color: #818cf8;
 }
 
-.hero-content h2 {
+.hero-wrapper h2 {
   font-size: 22px;
   font-weight: 500;
   color: #a5b4fc;
-  margin-bottom: 24px;
+  margin-bottom: 26px;
 }
 
-.hero-content p {
-  color: #cbd5f5;
+/* Description */
+.hero-wrapper p {
   font-size: 16px;
-  margin-bottom: 36px;
+  color: #cbd5f5;
   line-height: 1.7;
+  margin-bottom: 40px;
 }
 
-/* Buttons alignment */
+/* Buttons */
 .hero-buttons {
   display: flex;
   justify-content: center;
-  gap: 18px;
+  gap: 22px; /* PROPER spacing between buttons */
+  flex-wrap: wrap;
 }
+
 
 
 /* =====================================================
@@ -258,4 +262,5 @@ footer {
     padding: 60px 20px;
   }
 }
+
 
