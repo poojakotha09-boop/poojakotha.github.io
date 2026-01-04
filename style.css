@@ -178,20 +178,17 @@ h1, h2 {
   gap: 28px;
 }
 
-/* Base card */
 .skill-card {
   background: #020617;
   border-radius: 18px;
   padding: 26px;
   text-align: left;
   position: relative;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: 
-    transform 0.4s ease,
-    opacity 0.4s ease,
-    box-shadow 0.4s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
+
 
 /* Scroll reveal */
 .skill-card.show {
@@ -321,3 +318,4 @@ footer {
     padding: 60px 20px;
   }
 }
+
