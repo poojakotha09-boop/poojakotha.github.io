@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <title>Projects | Kotha Usha</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+
+  <!-- Cache busting -->
+  <link rel="stylesheet" href="style.css?v=8">
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Inter&display=swap" rel="stylesheet">
 </head>
 
@@ -14,7 +17,6 @@
   <div class="logo">Kotha Usha</div>
   <nav>
     <a href="index.html">Home</a>
-    <a href="about.html">About</a>
     <a href="skills.html">Skills</a>
     <a class="active" href="projects.html">Projects</a>
     <a href="contact.html">Contact</a>
@@ -24,47 +26,87 @@
 <section class="projects-section">
   <h1>Projects</h1>
   <p class="subtitle">
-    Selected software projects demonstrating real-world problem solving,
-    system design, and application development.
+    Selected academic and applied projects demonstrating problem-solving,
+    system design, and practical implementation skills.
   </p>
 
-  <!-- PROJECT 1 -->
-  <div class="project-card">
-    <h3>
-      Automation Billing System
-      <span class="badge">PATENT</span>
-    </h3>
-    <p>
-      Developed an automated billing system to reduce manual checkout
-      using intelligent product recognition and software-driven workflows.
-    </p>
-    <p class="tech">
-      Python · ESP32-CAM · Machine Learning
-    </p>
-  </div>
+  <div class="skills-grid">
 
-  <!-- PROJECT 2 -->
-  <div class="project-card">
-    <h3>Multimodal AI-Powered Interview Simulator</h3>
-    <p>
-      Web-based interview simulation platform providing structured practice
-      and intelligent feedback in a realistic interview environment.
-    </p>
-    <p class="tech">
-      HTML · CSS · JavaScript · Python · AI / NLP
-    </p>
-  </div>
+    <!-- Project 1 -->
+    <div class="skill-card">
+      <h3>Automation Billing System <span class="badge">Patent Registered</span></h3>
 
-  <!-- PROJECT 3 -->
-  <div class="project-card">
-    <h3>FinTech Finance Management & Stock Forecasting</h3>
-    <p>
-      Finance management system with expense tracking and
-      stock trend forecasting using machine learning techniques.
-    </p>
-    <p class="tech">
-      Python · Data Analysis · Machine Learning
-    </p>
+      <span class="skill-level">2023 · Applied ML & Embedded Systems</span>
+
+      <div class="skill-divider"></div>
+
+      <p>
+        Automated retail billing system using camera-based product recognition
+        to reduce manual checkout processes.
+      </p>
+
+      <div class="skill-tags">
+        <span>Python</span>
+        <span>Machine Learning</span>
+        <span>ESP32-CAM</span>
+        <span>Computer Vision</span>
+      </div>
+
+      <div class="skill-footer">
+        Built end-to-end pipeline: image capture → product detection → billing generation
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="skill-card">
+      <h3>Multimodal AI-Driven Interview Simulator</h3>
+
+      <span class="skill-level">2024 · AI / NLP System Design</span>
+
+      <div class="skill-divider"></div>
+
+      <p>
+        AI-based interview simulation platform providing real-time feedback
+        on responses, communication quality, and non-verbal cues.
+      </p>
+
+      <div class="skill-tags">
+        <span>Artificial Intelligence</span>
+        <span>NLP</span>
+        <span>Speech Analysis</span>
+        <span>Multimodal AI</span>
+      </div>
+
+      <div class="skill-footer">
+        Integrated text, speech, and behavioral analysis to emulate real interview scenarios
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="skill-card">
+      <h3>FinTech Finance Management & Stock Forecasting</h3>
+
+      <span class="skill-level">2025 · FinTech & Predictive Analytics</span>
+
+      <div class="skill-divider"></div>
+
+      <p>
+        Finance management system for expense tracking combined with
+        machine learning-based stock trend forecasting.
+      </p>
+
+      <div class="skill-tags">
+        <span>Python</span>
+        <span>Machine Learning</span>
+        <span>Data Analysis</span>
+        <span>FinTech</span>
+      </div>
+
+      <div class="skill-footer">
+        Applied predictive modeling to historical financial data for decision support
+      </div>
+    </div>
+
   </div>
 </section>
 
