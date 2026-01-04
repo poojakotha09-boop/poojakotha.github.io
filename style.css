@@ -441,3 +441,33 @@ footer {
 }
 
 
+/* =====================================================
+   CONTACT — SKILLS STYLE INTERACTION
+===================================================== */
+.contact-card {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.contact-card h3 {
+  margin-bottom: 8px;
+}
+
+.contact-text {
+  font-size: 15px;
+  color: #a5b4fc;
+  word-break: break-all;
+}
+
+/* Enhanced hover glow (same feel as skills) */
+.contact-card:hover {
+  background: linear-gradient(
+    145deg,
+    rgba(99,102,241,0.08),
+    rgba(34,211,238,0.05)
+  );
+  box-shadow: 0 10px 30px rgba(99,102,241,0.15);
+}
+
+
+
