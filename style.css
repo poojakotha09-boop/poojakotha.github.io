@@ -283,6 +283,8 @@ h1, h2 {
   color: #64748b;
 }
 
+
+
 /* =====================================================
    BUTTONS
 ===================================================== */
@@ -344,3 +346,49 @@ footer {
     padding: 60px 20px;
   }
 }
+
+
+/* =====================================================
+   CONTACT — CLEAN PROFESSIONAL CARD
+===================================================== */
+.contact-section {
+  max-width: 800px;
+  margin: auto;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.contact-card {
+  margin-top: 50px;
+  background: #020617;
+  border: 1px solid #1e293b;
+  border-radius: 18px;
+  padding: 36px;
+  display: grid;
+  gap: 26px;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact-label {
+  font-size: 13px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.contact-item a {
+  color: #a5b4fc;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.contact-item a:hover {
+  text-decoration: underline;
+}
+
+
