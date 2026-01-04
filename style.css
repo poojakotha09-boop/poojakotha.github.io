@@ -201,6 +201,49 @@ h1, h2 {
   from { width: 0; }
 }
 
+
+/* =====================================================
+   SKILLS — CENTERED DASHBOARD STYLE
+===================================================== */
+.skills-section {
+  padding: 80px 20px;
+}
+
+.skills-section h1 {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.skills-container {
+  max-width: 700px;     /* 👈 Controls width */
+  margin: auto;         /* 👈 Centers container */
+}
+
+.skill {
+  margin-bottom: 30px;
+}
+
+.skill span {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: #cbd5f5;
+}
+
+.bar {
+  height: 12px;
+  background: #020617;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background: linear-gradient(135deg, #6366f1, #22d3ee);
+}
+
+
 /* =====================================================
    BUTTONS
 ===================================================== */
@@ -262,5 +305,6 @@ footer {
     padding: 60px 20px;
   }
 }
+
 
 
