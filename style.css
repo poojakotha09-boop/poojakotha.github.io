@@ -165,60 +165,84 @@ h1, h2 {
   margin-left: 8px;
 }
 
+
 /* =====================================================
-   SKILLS — FINAL CLEAN DASHBOARD (NO BUGS)
+   SKILLS — PROFESSIONAL DASHBOARD (HIGH CONTRAST)
 ===================================================== */
+
 .skills-section {
   text-align: center;
+  background: radial-gradient(circle at top, #020617, #020617);
 }
 
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 26px;
+  gap: 30px;
 }
 
+/* Skill Cards */
 .skill-card {
-  background: linear-gradient(145deg, #020617, #020617);
-  border: 1px solid #1e293b;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 0.95),
+    rgba(2, 6, 23, 0.95)
+  );
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  border-left: 4px solid #6366f1;
   border-radius: 18px;
-  padding: 26px;
+  padding: 28px;
   text-align: left;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  transition: 
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .skill-card:hover {
-  transform: translateY(-6px);
-  border-color: #6366f1;
+  transform: translateY(-8px);
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  border-left-color: #22d3ee;
 }
 
+/* Headings */
 .skill-card h3 {
   font-family: 'Poppins', sans-serif;
   font-size: 18px;
-  margin-bottom: 16px;
-  color: #e5e7eb;
+  margin-bottom: 18px;
+  color: #f8fafc;
+  letter-spacing: 0.3px;
 }
 
 .skill-card h3::before {
   content: "▸";
   color: #6366f1;
-  margin-right: 8px;
+  margin-right: 10px;
 }
 
+/* Tags */
 .skill-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
 }
 
 .skill-tags span {
-  background: #0b1120;
-  border: 1px solid #1e293b;
-  color: #cbd5f5;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  color: #e5e7eb;
   font-size: 13px;
-  padding: 7px 14px;
+  padding: 8px 16px;
   border-radius: 999px;
+  backdrop-filter: blur(6px);
 }
+
+
 
 /* =====================================================
    BUTTONS
@@ -281,3 +305,4 @@ footer {
     padding: 60px 20px;
   }
 }
+
