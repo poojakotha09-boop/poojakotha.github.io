@@ -1,4 +1,23 @@
 /* =====================================================
+   LIGHT THEME — WARM GRAY + OLIVE
+===================================================== */
+body.light-theme {
+  --bg-main: #f6f7f5;
+  --bg-card: #ffffff;
+  --bg-hover: #f0f2ef;
+
+  --border-color: #d6dad6;
+
+  --text-main: #1c1f1d;
+  --text-muted: #5f6b63;
+
+  --accent-main: #6f9c72;
+  --accent-soft: #88b38b;
+}
+
+
+
+/* =====================================================
    UNIQUE THEME — GRAPHITE + MUTED OLIVE (CUSTOM)
 ===================================================== */
 :root {
@@ -303,3 +322,4 @@ footer {
     padding: 60px 20px;
   }
 }
+
