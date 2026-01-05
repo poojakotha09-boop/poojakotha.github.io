@@ -1,37 +1,31 @@
 /* =====================================================
-   THEME SYSTEM — AUTO DETECT + USER OVERRIDE
+   THEME TOGGLE — CLEAN & RELIABLE
 ===================================================== */
 
-const body = document.body;
-const themeToggle = document.getElementById("themeToggle");
+document.addEventListener("DOMContentLoaded", () => {
+  const body = document.body;
+  const themeToggle = document.getElementById("themeToggle");
 
-/* Detect system preference */
-const systemPrefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+  if (!themeToggle) return;
 
-/* Load saved theme OR system preference */
-const savedTheme = localStorage.getItem("theme");
+  // Load saved theme
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "light") {
+    body.classList.add("light");
+    themeToggle.textContent = "🌙";
+  } else {
+    themeToggle.textContent = "☀";
+  }
 
-if (savedTheme) {
-  body.classList.toggle("light-theme", savedTheme === "light");
-} else {
-  body.classList.toggle("light-theme", systemPrefersLight);
-}
-
-/* Set correct icon */
-if (themeToggle) {
-  themeToggle.textContent = body.classList.contains("light-theme") ? "🌙" : "☀";
-}
-
-/* Toggle theme manually */
-if (themeToggle) {
+  // Toggle theme
   themeToggle.addEventListener("click", () => {
-    body.classList.toggle("light-theme");
+    body.classList.toggle("light");
 
-    const isLight = body.classList.contains("light-theme");
+    const isLight = body.classList.contains("light");
     localStorage.setItem("theme", isLight ? "light" : "dark");
     themeToggle.textContent = isLight ? "🌙" : "☀";
   });
-}
+});
 
 /* =====================================================
    MICRO HOVER GLOW — SKILLS / PROJECTS
@@ -46,15 +40,15 @@ document.querySelectorAll(".skill-card").forEach(card => {
     card.style.background = `
       radial-gradient(
         600px circle at ${x}px ${y}px,
-        rgba(125,168,123,0.18),
+        rgba(127, 227, 195, 0.22),
         transparent 40%
       ),
-      var(--bg-card)
+      var(--bg-secondary)
     `;
   });
 
   card.addEventListener("mouseleave", () => {
-    card.style.background = "var(--bg-card)";
+    card.style.background = "var(--bg-secondary)";
   });
 });
 
