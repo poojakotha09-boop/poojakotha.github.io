@@ -381,4 +381,35 @@ footer {
   }
 }
 
+/* ===============================
+   Light Theme Overrides
+================================ */
+
+body.light-theme {
+  background: #f5f7fa;
+  color: #111;
+}
+
+body.light-theme .navbar {
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid #ddd;
+}
+
+body.light-theme a {
+  color: #3b5bdb;
+}
+
+body.light-theme .contact-card,
+body.light-theme .skill-card,
+body.light-theme .project-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+body.light-theme footer {
+  background: #fff;
+  color: #333;
+}
+
 
