@@ -17,6 +17,24 @@
   --border-hover: rgba(127, 227, 195, 0.45);
 }
 
+body.light {
+  --bg-main: #f7f9f8;
+  --bg-secondary: #ffffff;
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+
+  --accent: #0f766e;
+  --accent-muted: #0d9488;
+
+  --border-soft: rgba(15, 118, 110, 0.15);
+  --border-hover: rgba(15, 118, 110, 0.4);
+
+  background: radial-gradient(circle at top, #ffffff, #f1f5f9);
+}
+
+
 /* =====================================================
    GLOBAL RESET
 ===================================================== */
@@ -362,4 +380,5 @@ footer {
     font-size: 28px;
   }
 }
+
 
