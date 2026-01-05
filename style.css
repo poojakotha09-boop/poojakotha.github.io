@@ -356,5 +356,12 @@ footer {
   }
 }
 
+/* =====================================================
+   RESUME CARD EMPHASIS (SUBTLE)
+===================================================== */
+.contact-card:first-child {
+  border-color: var(--accent-main);
+}
+
 
 
