@@ -1,22 +1,5 @@
-// Dark Mode
-document.getElementById("themeToggle").onclick = () => {
-  document.body.classList.toggle("dark");
-};
-
-// Scroll Reveal
-const reveals = document.querySelectorAll(".reveal");
-
-window.addEventListener("scroll", () => {
-  reveals.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if (top < window.innerHeight - 100) {
-      el.classList.add("active");
-    }
-  });
-});
-
 /* =====================================================
-   MICRO HOVER EFFECT — SKILLS / PROJECTS / CONTACT
+   MICRO HOVER GLOW — UNIQUE OLIVE THEME
 ===================================================== */
 
 const cards = document.querySelectorAll('.skill-card');
@@ -30,14 +13,14 @@ cards.forEach(card => {
     card.style.background = `
       radial-gradient(
         600px circle at ${x}px ${y}px,
-        rgba(99,102,241,0.12),
+        rgba(125,168,123,0.18),
         transparent 40%
       ),
-      #020617
+      var(--bg-hover)
     `;
   });
 
   card.addEventListener('mouseleave', () => {
-    card.style.background = '#020617';
+    card.style.background = 'var(--bg-card)';
   });
 });
