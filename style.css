@@ -451,4 +451,39 @@ body.light footer {
   border-top: 1px solid #d1d5db;
 }
 
+/* =====================================================
+   LIGHT THEME — SKILL CARD TITLE FIX
+   (Color & contrast only)
+===================================================== */
+
+/* Skill card titles */
+body.light .skill-card h3 {
+  color: #0f172a;            /* strong slate */
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+/* Level text (Beginner / Intermediate etc.) */
+body.light .skill-card .level,
+body.light .skill-card strong {
+  color: #0f766e;            /* deep teal */
+  font-weight: 600;
+}
+
+/* Card description text */
+body.light .skill-card p {
+  color: #1e293b;            /* darker readable text */
+}
+
+/* Subtle title divider effect */
+body.light .skill-card h3::after {
+  content: "";
+  display: block;
+  width: 36px;
+  height: 2px;
+  margin-top: 6px;
+  background: #0f766e;
+  border-radius: 999px;
+}
+
 
