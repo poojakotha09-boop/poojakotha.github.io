@@ -13,27 +13,29 @@
   --accent: #7fe3c3;
   --accent-muted: #4dbfa1;
 
-  --border-soft: rgba(127, 227, 195, 0.15);
-  --border-hover: rgba(127, 227, 195, 0.45);
+  --border-soft: rgba(127, 227, 195, 0.18);
+  --border-hover: rgba(127, 227, 195, 0.5);
 }
 
+/* ===============================
+   LIGHT THEME (SINGLE SOURCE)
+================================ */
 body.light {
-  --bg-main: #f7f9f8;
+  --bg-main: #f4f6f8;
   --bg-secondary: #ffffff;
 
   --text-primary: #0f172a;
-  --text-secondary: #475569;
+  --text-secondary: #334155;
   --text-muted: #64748b;
 
   --accent: #0f766e;
   --accent-muted: #0d9488;
 
-  --border-soft: rgba(15, 118, 110, 0.15);
-  --border-hover: rgba(15, 118, 110, 0.4);
+  --border-soft: rgba(15, 118, 110, 0.25);
+  --border-hover: rgba(15, 118, 110, 0.55);
 
-  background: radial-gradient(circle at top, #ffffff, #f1f5f9);
+  background: radial-gradient(circle at top, #ffffff, #eef2f7);
 }
-
 
 /* =====================================================
    GLOBAL RESET
@@ -54,6 +56,7 @@ body {
   background: radial-gradient(circle at top, #121614, var(--bg-main));
   color: var(--text-primary);
   line-height: 1.6;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* =====================================================
@@ -69,6 +72,10 @@ body {
   border-bottom: 1px solid var(--border-soft);
 }
 
+body.light .navbar {
+  background: rgba(255, 255, 255, 0.92);
+}
+
 .logo {
   font-family: 'Poppins', sans-serif;
   font-size: 20px;
@@ -81,7 +88,6 @@ nav a {
   text-decoration: none;
   font-size: 14.5px;
   color: var(--text-secondary);
-  transition: color 0.2s ease;
 }
 
 nav a:hover,
@@ -89,98 +95,19 @@ nav a.active {
   color: var(--accent);
 }
 
-/* Theme Toggle Button */
+/* Theme Toggle */
 .theme-toggle {
   margin-left: 24px;
   background: transparent;
   border: 1px solid var(--border-soft);
   color: var(--accent);
-  font-size: 16px;
   padding: 6px 12px;
   border-radius: 10px;
   cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.theme-toggle:hover {
-  background: rgba(127, 227, 195, 0.1);
-}
-
-
-/* =====================================================
-   HERO SECTION (CENTERED CLEAN)
-===================================================== */
-.hero {
-  min-height: calc(100vh - 70px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px 20px;
-}
-
-.hero-wrapper {
-  max-width: 760px;
-  text-align: center;
-}
-
-.hero-wrapper h1 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 44px;
-  margin-bottom: 10px;
-}
-
-.hero-wrapper h2 {
-  font-size: 22px;
-  font-weight: 500;
-  color: var(--accent);
-  margin-bottom: 22px;
-}
-
-.hero-wrapper p {
-  font-size: 16px;
-  color: var(--text-secondary);
-  margin-bottom: 36px;
-}
-
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 22px;
-  flex-wrap: wrap;
 }
 
 /* =====================================================
-   BUTTONS
-===================================================== */
-.btn {
-  padding: 12px 30px;
-  border-radius: 14px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.25s ease;
-}
-
-.btn-primary {
-  background: var(--accent);
-  color: #0e0f0f;
-}
-
-.btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(127, 227, 195, 0.35);
-}
-
-.btn-secondary {
-  border: 1px solid var(--border-hover);
-  color: var(--accent);
-}
-
-.btn-secondary:hover {
-  background: rgba(127, 227, 195, 0.08);
-}
-
-/* =====================================================
-   COMMON PAGE LAYOUT
+   SECTIONS
 ===================================================== */
 .skills-section,
 .projects-section,
@@ -204,7 +131,7 @@ h1 {
 }
 
 /* =====================================================
-   SKILLS GRID — ADAPTIVE & PREMIUM
+   SKILLS GRID — PROFESSIONAL & ADAPTIVE
 ===================================================== */
 .skills-grid {
   display: grid;
@@ -214,22 +141,20 @@ h1 {
 
 .skill-card {
   background:
-    linear-gradient(180deg, rgba(127, 227, 195, 0.04), transparent),
+    linear-gradient(180deg, rgba(127, 227, 195, 0.05), transparent),
     var(--bg-secondary);
 
-  border: 1px solid var(--border-soft);
+  border: 1.5px solid var(--border-soft);
   border-radius: 22px;
-  padding: 26px 26px 30px;
+  padding: 26px;
   text-align: left;
   position: relative;
   transition: all 0.35s ease;
 }
 
-/* Hover depth + glow */
 .skill-card:hover {
   transform: translateY(-8px);
   border-color: var(--border-hover);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
 }
 
 /* Accent line */
@@ -242,13 +167,12 @@ h1 {
   width: 3px;
   background: var(--accent);
   border-radius: 999px;
-  opacity: 0.7;
 }
 
 .skill-card h3 {
   font-family: 'Poppins', sans-serif;
   font-size: 17px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   color: var(--text-primary);
 }
 
@@ -263,24 +187,24 @@ h1 {
   padding: 6px 14px;
   border-radius: 999px;
   font-size: 13px;
+  font-weight: 500;
   color: var(--accent);
   border: 1px solid var(--border-soft);
-  background: rgba(127, 227, 195, 0.06);
-  transition: all 0.25s ease;
+  background: rgba(127, 227, 195, 0.08);
 }
 
-/* Hover animation on tags */
-.skill-tags span:hover {
-  background: rgba(127, 227, 195, 0.18);
-  transform: translateY(-2px);
+body.light .skill-tags span {
+  background: #ecfdf5;
+  color: #065f46;
+  border-color: #99f6e4;
 }
 
 /* =====================================================
-   PROJECT CARDS
+   PROJECTS
 ===================================================== */
 .project-card {
   background: var(--bg-secondary);
-  border: 1px solid var(--border-soft);
+  border: 1.5px solid var(--border-soft);
   border-radius: 22px;
   padding: 30px;
   margin-bottom: 30px;
@@ -293,23 +217,12 @@ h1 {
   border-color: var(--border-hover);
 }
 
-.project-card h3 {
-  font-family: 'Poppins', sans-serif;
-  margin-bottom: 10px;
-}
-
 .project-card p {
   color: var(--text-secondary);
-  margin-bottom: 10px;
-}
-
-.tech {
-  color: var(--accent);
-  font-size: 13px;
 }
 
 /* =====================================================
-   CONTACT CARDS — UNIQUE SHAPE
+   CONTACT
 ===================================================== */
 .contact-grid {
   display: grid;
@@ -319,8 +232,8 @@ h1 {
 
 .contact-card {
   background: var(--bg-secondary);
-  border: 1px solid var(--border-soft);
-  border-radius: 26px 26px 26px 6px; /* unique shape */
+  border: 1.5px solid var(--border-soft);
+  border-radius: 26px 26px 26px 6px;
   padding: 28px;
   text-align: left;
   transition: all 0.35s ease;
@@ -332,7 +245,6 @@ h1 {
 }
 
 .contact-card h3 {
-  font-family: 'Poppins', sans-serif;
   color: var(--accent);
   margin-bottom: 10px;
 }
@@ -340,7 +252,6 @@ h1 {
 .contact-card a {
   color: var(--text-secondary);
   text-decoration: none;
-  font-size: 14px;
 }
 
 .contact-card a:hover {
@@ -355,7 +266,6 @@ footer {
   padding: 30px;
   border-top: 1px solid var(--border-soft);
   color: var(--text-muted);
-  font-size: 14px;
 }
 
 /* =====================================================
@@ -380,36 +290,3 @@ footer {
     font-size: 28px;
   }
 }
-
-/* ===============================
-   Light Theme Overrides
-================================ */
-
-body.light-theme {
-  background: #f5f7fa;
-  color: #111;
-}
-
-body.light-theme .navbar {
-  background: rgba(255, 255, 255, 0.9);
-  border-bottom: 1px solid #ddd;
-}
-
-body.light-theme a {
-  color: #3b5bdb;
-}
-
-body.light-theme .contact-card,
-body.light-theme .skill-card,
-body.light-theme .project-card {
-  background: #ffffff;
-  border: 1px solid #e0e0e0;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-}
-
-body.light-theme footer {
-  background: #fff;
-  color: #333;
-}
-
-
