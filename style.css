@@ -91,6 +91,28 @@ nav a.active {
 }
 
 /* =====================================================
+   THEME TOGGLE BUTTON
+===================================================== */
+.theme-toggle {
+  margin-left: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent-main);
+}
+
+
+
+
+/* =====================================================
    HERO
 ===================================================== */
 .hero {
@@ -322,4 +344,5 @@ footer {
     padding: 60px 20px;
   }
 }
+
 
