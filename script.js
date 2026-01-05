@@ -64,3 +64,34 @@ document.querySelectorAll(".contact-card").forEach(card => {
     card.style.setProperty("--y", `${e.clientY - rect.top}px`);
   });
 });
+
+
+/* ===== Existing JS code above (leave it as-is) ===== */
+
+
+/* =====================================================
+   THEME TOGGLE (ADD THIS AT THE END)
+===================================================== */
+const toggleBtn = document.getElementById("themeToggle");
+const body = document.body;
+
+if (toggleBtn) {
+  // Load saved theme
+  if (localStorage.getItem("theme") === "light") {
+    body.classList.add("light");
+    toggleBtn.textContent = "🌙";
+  }
+
+  toggleBtn.addEventListener("click", () => {
+    body.classList.toggle("light");
+
+    if (body.classList.contains("light")) {
+      localStorage.setItem("theme", "light");
+      toggleBtn.textContent = "🌙";
+    } else {
+      localStorage.setItem("theme", "dark");
+      toggleBtn.textContent = "☀";
+    }
+  });
+}
+
