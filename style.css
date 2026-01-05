@@ -386,31 +386,69 @@ footer {
    Light Theme Overrides
 ================================ */
 
-body.light-theme {
-  background: #f5f7fa;
-  color: #111;
+/* =====================================================
+   LIGHT THEME — COLOR ONLY (NO LAYOUT CHANGES)
+===================================================== */
+
+body.light {
+  background: #f6f8fa;
+  color: #0f172a;
 }
 
-body.light-theme .navbar {
-  background: rgba(255, 255, 255, 0.9);
-  border-bottom: 1px solid #ddd;
-}
-
-body.light-theme a {
-  color: #3b5bdb;
-}
-
-body.light-theme .contact-card,
-body.light-theme .skill-card,
-body.light-theme .project-card {
+/* Navbar */
+body.light .navbar {
   background: #ffffff;
-  border: 1px solid #e0e0e0;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  border-bottom: 1px solid #d1d5db;
 }
 
-body.light-theme footer {
-  background: #fff;
-  color: #333;
-} 
+/* Text */
+body.light h1,
+body.light h2,
+body.light h3 {
+  color: #0f172a;
+}
+
+body.light .subtitle,
+body.light p {
+  color: #334155;
+}
+
+/* Skill / Project / Contact Cards */
+body.light .skill-card,
+body.light .project-card,
+body.light .contact-card {
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1; /* darker border */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* Card accent line */
+body.light .skill-card::before {
+  background: #0f766e;
+}
+
+/* Skill Tags */
+body.light .skill-tags span {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #99f6e4;
+  font-weight: 500;
+}
+
+/* Links */
+body.light a {
+  color: #0f766e;
+}
+
+body.light a:hover {
+  color: #115e59;
+}
+
+/* Footer */
+body.light footer {
+  background: #ffffff;
+  color: #475569;
+  border-top: 1px solid #d1d5db;
+}
 
 
