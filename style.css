@@ -71,6 +71,24 @@ nav a.active {
   color: var(--accent);
 }
 
+/* Theme Toggle Button */
+.theme-toggle {
+  margin-left: 24px;
+  background: transparent;
+  border: 1px solid var(--border-soft);
+  color: var(--accent);
+  font-size: 16px;
+  padding: 6px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.theme-toggle:hover {
+  background: rgba(127, 227, 195, 0.1);
+}
+
+
 /* =====================================================
    HERO SECTION (CENTERED CLEAN)
 ===================================================== */
@@ -344,3 +362,4 @@ footer {
     font-size: 28px;
   }
 }
+
