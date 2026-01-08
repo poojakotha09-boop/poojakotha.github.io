@@ -1054,6 +1054,41 @@ body.light .hero-photo img {
   }
 }
 
+/* =====================================================
+   HERO SPLIT LAYOUT — PHOTO LEFT, TEXT RIGHT
+===================================================== */
+
+.hero-split {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 64px;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+/* Ensure text aligns properly */
+.hero-content {
+  max-width: 520px;
+}
+
+/* Override default center alignment */
+.hero-wrapper {
+  text-align: left;
+}
+
+/* Mobile layout — stack vertically */
+@media (max-width: 768px) {
+  .hero-split {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-wrapper {
+    text-align: center;
+  }
+}
+
 
 
 
