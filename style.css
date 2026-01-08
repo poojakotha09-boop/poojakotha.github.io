@@ -488,5 +488,22 @@ body.light .skill-card h3::after {
 }
 
 
+/* ===============================
+   FIX PRIMARY BUTTON — LIGHT THEME
+================================ */
+
+body.light .btn-primary {
+  background: #0f766e;   /* strong teal */
+  color: #ffffff;        /* force white text */
+  font-weight: 600;
+}
+
+body.light .btn-primary:hover {
+  background: #115e59;
+  box-shadow: 0 10px 30px rgba(15, 118, 110, 0.35);
+}
+
+
 
  
+
