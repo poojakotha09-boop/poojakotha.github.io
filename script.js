@@ -50,7 +50,7 @@ function handleResume(action) {
   }
 
   if (action === "download") {
-    downloadFile(STATE.resumePath, "KothaUshaResume.pdf");
+    downloadFile(STATE.resumePath, "UshaKothaResume.pdf");
   }
 }
 
