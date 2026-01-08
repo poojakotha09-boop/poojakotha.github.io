@@ -1138,7 +1138,7 @@ body.inner-page .profile-mini {
 
   /* Animation magic */
   transition: 
-    transform 0.6s ease,
+    transform 0.99s ease,
     opacity 0.4s ease;
 }
 
@@ -1163,6 +1163,7 @@ body.home-page .profile-mini img {
   transform: scale(10);
   opacity: 0;
 }
+
 
 
 
