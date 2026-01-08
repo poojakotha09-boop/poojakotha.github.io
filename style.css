@@ -1200,6 +1200,42 @@ body.page-inner .hero-photo {
   pointer-events: none;
 }
 
+/* ===============================
+   PROFILE TRANSITION STATES
+================================ */
+
+/* Default states */
+#navProfile {
+  opacity: 0;
+  transform: scale(0.6);
+  transition: all 0.5s ease;
+}
+
+#heroPhoto {
+  transition: all 0.5s ease;
+}
+
+/* Inner pages */
+body.page-inner #navProfile {
+  opacity: 1;
+  transform: scale(1);
+}
+
+body.page-inner #heroPhoto {
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+}
+
+/* Home page */
+body.page-home #navProfile {
+  opacity: 0;
+}
+
+body.page-home #heroPhoto {
+  opacity: 1;
+}
+
 
 
 
