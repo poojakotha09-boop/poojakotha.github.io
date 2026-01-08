@@ -12,6 +12,7 @@ const STATE = {
 document.addEventListener("DOMContentLoaded", () => {
   applyTheme();
   bindUIEvents();
+  detectPageContext();
 });
 
 /* =====================================================
@@ -44,17 +45,12 @@ function handleResume(action) {
     return;
   }
 
-  switch (action) {
-    case "view":
-      window.open(STATE.resumePath, "_blank");
-      break;
+  if (action === "view") {
+    window.open(STATE.resumePath, "_blank");
+  }
 
-    case "download":
-      downloadFile(STATE.resumePath, "KothaUshaResume.pdf");
-      break;
-
-    default:
-      console.warn("Unknown resume action:", action);
+  if (action === "download") {
+    downloadFile(STATE.resumePath, "KothaUshaResume.pdf");
   }
 }
 
@@ -76,11 +72,10 @@ function filterSkills(level) {
   cards.forEach(card => {
     const skillLevel = card.dataset.level;
 
-    if (level === "all" || skillLevel === level) {
-      card.style.display = "block";
-    } else {
-      card.style.display = "none";
-    }
+    card.style.display =
+      level === "all" || skillLevel === level
+        ? "block"
+        : "none";
   });
 }
 
@@ -105,7 +100,7 @@ function bindUIEvents() {
     themeBtn.addEventListener("click", toggleTheme);
   }
 
-  /* Resume Buttons */
+  /* Resume Buttons (data-resume) */
   document.querySelectorAll("[data-resume]").forEach(btn => {
     btn.addEventListener("click", e => {
       handleResume(e.target.dataset.resume);
@@ -120,79 +115,45 @@ function bindUIEvents() {
   });
 }
 
-/* =====================================
+/* =====================================================
    RESUME ACTION HANDLING (INTERVIEW SAFE)
-===================================== */
-
-document.addEventListener("click", (e) => {
+===================================================== */
+document.addEventListener("click", e => {
   const action = e.target.dataset.action;
   if (!action) return;
 
   if (action === "view-resume") {
-    window.open("UshaKothaResume.pdf", "_blank");
+    window.open(STATE.resumePath, "_blank");
   }
 
   if (action === "download-resume") {
-    const link = document.createElement("a");
-    link.href = "UshaKothaResume.pdf";
-    link.download = "UshaKothaResume.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    downloadFile(STATE.resumePath, "KothaUshaResume.pdf");
   }
 });
 
-/* =====================================
+/* =====================================================
    PAGE CONTEXT DETECTION
-===================================== */
-
-const body = document.body;
-const path = window.location.pathname;
-
-if (!path.includes("index")) {
-  body.classList.add("inner-page");
-}
-
-/* =====================================
-   PAGE-AWARE PROFILE TRANSITION
-===================================== */
-
-const body = document.body;
-const path = window.location.pathname;
-
-if (path.includes("index") || path === "/" || path === "") {
-  body.classList.add("home-page");
-} else {
-  body.classList.add("inner-page");
-}
-
-
-/* =========================================
-   PAGE STATE DETECTION
-   Shows problem-solving skill
-========================================= */
-
-document.addEventListener("DOMContentLoaded", () => {
+   (Home vs Inner Pages)
+===================================================== */
+function detectPageContext() {
   const body = document.body;
   const page = window.location.pathname.split("/").pop();
 
-  // Default = Home page
   if (page === "" || page === "index.html") {
+    body.classList.add("home-page");
     body.classList.add("page-home");
   } else {
+    body.classList.add("inner-page");
     body.classList.add("page-inner");
   }
-});
+}
 
-
-/* =========================================
-   PAGE TRANSITION FADE
-========================================= */
-
+/* =====================================================
+   PAGE TRANSITION FADE (INTERNAL LINKS ONLY)
+===================================================== */
 document.querySelectorAll("a[href]").forEach(link => {
   const href = link.getAttribute("href");
 
-  // Only internal page navigation
   if (
     href &&
     !href.startsWith("#") &&
@@ -201,13 +162,11 @@ document.querySelectorAll("a[href]").forEach(link => {
   ) {
     link.addEventListener("click", e => {
       e.preventDefault();
-
       document.body.classList.add("page-fade-out");
 
       setTimeout(() => {
         window.location.href = href;
-      }, 300); // sync with CSS
+      }, 300);
     });
   }
 });
-
