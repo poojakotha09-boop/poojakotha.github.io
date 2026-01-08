@@ -1089,6 +1089,10 @@ body.light .hero-photo img {
   }
 }
 
+.hero-photo img {
+  display: block;
+}
+
 
 
 
