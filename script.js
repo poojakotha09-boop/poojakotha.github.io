@@ -165,3 +165,49 @@ if (path.includes("index") || path === "/" || path === "") {
 } else {
   body.classList.add("inner-page");
 }
+
+
+/* =========================================
+   PAGE STATE DETECTION
+   Shows problem-solving skill
+========================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const body = document.body;
+  const page = window.location.pathname.split("/").pop();
+
+  // Default = Home page
+  if (page === "" || page === "index.html") {
+    body.classList.add("page-home");
+  } else {
+    body.classList.add("page-inner");
+  }
+});
+
+
+/* =========================================
+   PAGE TRANSITION FADE
+========================================= */
+
+document.querySelectorAll("a[href]").forEach(link => {
+  const href = link.getAttribute("href");
+
+  // Only internal page navigation
+  if (
+    href &&
+    !href.startsWith("#") &&
+    !href.startsWith("http") &&
+    !href.startsWith("mailto")
+  ) {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+
+      document.body.classList.add("page-fade-out");
+
+      setTimeout(() => {
+        window.location.href = href;
+      }, 300); // sync with CSS
+    });
+  }
+});
+
