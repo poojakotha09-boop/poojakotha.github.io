@@ -3,7 +3,7 @@
 ===================================================== */
 const STATE = {
   theme: localStorage.getItem("theme") || "dark",
-  resumePath: "KothaUshaResume.pdf"
+  resumePath: "UshaKothaResume.pdf"
 };
 
 /* =====================================================
@@ -127,7 +127,7 @@ document.addEventListener("click", e => {
   }
 
   if (action === "download-resume") {
-    downloadFile(STATE.resumePath, "KothaUshaResume.pdf");
+    downloadFile(STATE.resumePath, "UshaKothaResume.pdf");
   }
 });
 
