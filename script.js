@@ -10,24 +10,9 @@ const STATE = {
    INITIALIZATION
 ===================================================== */
 document.addEventListener("DOMContentLoaded", () => {
-  detectPageContext();
   applyTheme();
   bindUIEvents();
 });
-
-/* =====================================================
-   PAGE CONTEXT DETECTION (NO DUPLICATES)
-===================================================== */
-function detectPageContext() {
-  const body = document.body;
-  const path = window.location.pathname;
-
-  if (path.includes("index") || path === "/" || path === "") {
-    body.classList.add("home-page");
-  } else {
-    body.classList.add("inner-page");
-  }
-}
 
 /* =====================================================
    THEME LOGIC
@@ -51,7 +36,7 @@ function toggleTheme() {
 }
 
 /* =====================================================
-   RESUME HANDLING (PROBLEM SOLVING)
+   RESUME HANDLING (PROBLEM-SOLVING LOGIC)
 ===================================================== */
 function handleResume(action) {
   if (!STATE.resumePath) {
@@ -59,53 +44,113 @@ function handleResume(action) {
     return;
   }
 
-  if (action === "view") {
-    window.open(STATE.resumePath, "_blank");
-  }
+  switch (action) {
+    case "view":
+      window.open(STATE.resumePath, "_blank");
+      break;
 
-  if (action === "download") {
-    const link = document.createElement("a");
-    link.href = STATE.resumePath;
-    link.download = "KothaUshaResume.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    case "download":
+      downloadFile(STATE.resumePath, "KothaUshaResume.pdf");
+      break;
+
+    default:
+      console.warn("Unknown resume action:", action);
   }
 }
 
+function downloadFile(path, filename) {
+  const link = document.createElement("a");
+  link.href = path;
+  link.download = filename;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
 /* =====================================================
-   SKILL FILTERING (LOGIC + DOM)
+   SKILL FILTERING (DSA + DOM LOGIC)
 ===================================================== */
 function filterSkills(level) {
-  document.querySelectorAll(".skill-card").forEach(card => {
+  const cards = document.querySelectorAll(".skill-card");
+
+  cards.forEach(card => {
     const skillLevel = card.dataset.level;
-    card.style.display =
-      level === "all" || skillLevel === level ? "block" : "none";
+
+    if (level === "all" || skillLevel === level) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
   });
 }
 
 /* =====================================================
-   EVENT BINDING
+   UTILITY FUNCTIONS
+===================================================== */
+function openExternalLink(url) {
+  if (!url) {
+    console.error("Invalid URL");
+    return;
+  }
+  window.open(url, "_blank", "noopener");
+}
+
+/* =====================================================
+   EVENT BINDING (CLEAN & SCALABLE)
 ===================================================== */
 function bindUIEvents() {
-  /* Theme toggle */
+  /* Theme Toggle */
   const themeBtn = document.querySelector(".theme-toggle");
   if (themeBtn) {
     themeBtn.addEventListener("click", toggleTheme);
   }
 
-  /* Resume buttons */
+  /* Resume Buttons */
   document.querySelectorAll("[data-resume]").forEach(btn => {
     btn.addEventListener("click", e => {
       handleResume(e.target.dataset.resume);
     });
   });
 
-  /* Skill filters */
+  /* Skill Filter Buttons */
   document.querySelectorAll("[data-filter]").forEach(btn => {
     btn.addEventListener("click", e => {
       filterSkills(e.target.dataset.filter);
     });
   });
 }
+
+/* =====================================
+   RESUME ACTION HANDLING (INTERVIEW SAFE)
+===================================== */
+
+document.addEventListener("click", (e) => {
+  const action = e.target.dataset.action;
+  if (!action) return;
+
+  if (action === "view-resume") {
+    window.open("UshaKothaResume.pdf", "_blank");
+  }
+
+  if (action === "download-resume") {
+    const link = document.createElement("a");
+    link.href = "UshaKothaResume.pdf";
+    link.download = "UshaKothaResume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+});
+
+/* =====================================
+   PAGE CONTEXT DETECTION
+===================================== */
+
+const body = document.body;
+const path = window.location.pathname;
+
+if (!path.includes("index")) {
+  body.classList.add("inner-page");
+}
+
 
