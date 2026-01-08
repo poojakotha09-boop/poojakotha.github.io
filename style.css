@@ -1164,6 +1164,20 @@ body.home-page .profile-mini img {
   opacity: 0;
 }
 
+/* Hero image transition */
+.hero-photo img {
+  transition: 
+    transform 0.6s ease,
+    opacity 0.4s ease;
+}
+
+/* When leaving home */
+body.inner-page .hero-photo img {
+  transform: scale(0.6);
+  opacity: 0;
+  pointer-events: none;
+}
+
 
 
 
