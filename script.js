@@ -103,76 +103,24 @@ function bindUIEvents() {
   /* Resume Buttons (data-resume) */
   document.querySelectorAll("[data-resume]").forEach(btn => {
     btn.addEventListener("click", e => {
-      handleResume(e.target.dataset.resume);
+      e.preventDefault(); // ensure anchor doesn’t override JS
+      handleResume(e.currentTarget.dataset.resume);
     });
   });
 
   /* Skill Filter Buttons */
   document.querySelectorAll("[data-filter]").forEach(btn => {
     btn.addEventListener("click", e => {
-      filterSkills(e.target.dataset.filter);
+      filterSkills(e.currentTarget.dataset.filter);
     });
   });
 }
 
 /* =====================================================
-   RESUME ACTION HANDLING (INTERVIEW SAFE)
+   PAGE CONTEXT DETECTION
+   (BIG profile on home, MINI on inner pages)
 ===================================================== */
-document.addEventListener("click", e => {
-  const action = e.target.dataset.action;
-  if (!action) return;
-
-  if (action === "view-resume") {
-    window.open(STATE.resumePath, "_blank");
-  }
-
-  if (action === "download-resume") {
-    downloadFile(STATE.resumePath, "UshaKothaResume.pdf");
-  }
-});
-
-
-/* =========================================
-   PAGE TRANSITION FADE (SAFE VERSION)
-========================================= */
-
-document.querySelectorAll("a[href]").forEach(link => {
-  const href = link.getAttribute("href");
-
-  // ❌ Skip resume actions
-  if (link.dataset.resume) return;
-
-  // ❌ Skip new tabs & downloads
-  if (link.hasAttribute("download")) return;
-  if (link.getAttribute("target") === "_blank") return;
-
-  // Only internal HTML navigation
-  if (
-    href &&
-    !href.startsWith("#") &&
-    !href.startsWith("http") &&
-    !href.startsWith("mailto") &&
-    href.endsWith(".html")
-  ) {
-    link.addEventListener("click", e => {
-      e.preventDefault();
-
-      document.body.classList.add("page-fade-out");
-
-      setTimeout(() => {
-        window.location.href = href;
-      }, 300);
-    });
-  }
-});
-
-
-/* =========================================
-   PAGE-AWARE PROFILE SIZE CONTROL
-   (ADD THIS AT THE VERY BOTTOM)
-========================================= */
-
-document.addEventListener("DOMContentLoaded", () => {
+function detectPageContext() {
   const body = document.body;
   const page = window.location.pathname.split("/").pop();
 
@@ -183,6 +131,4 @@ document.addEventListener("DOMContentLoaded", () => {
     body.classList.add("page-inner");
     body.classList.remove("page-home");
   }
-});
-
-
+}
