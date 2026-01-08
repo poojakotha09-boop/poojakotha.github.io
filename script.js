@@ -181,3 +181,22 @@ document.querySelectorAll("a[href]").forEach(link => {
     });
   }
 });
+
+
+/* =========================================
+   PAGE-AWARE HERO TRANSITION
+========================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const body = document.body;
+  const page = window.location.pathname.split("/").pop();
+
+  if (page === "" || page === "index.html") {
+    body.classList.add("page-home");
+    body.classList.remove("page-inner");
+  } else {
+    body.classList.add("page-inner");
+    body.classList.remove("page-home");
+  }
+});
+
