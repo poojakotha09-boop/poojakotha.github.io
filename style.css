@@ -1282,6 +1282,75 @@ body.page-inner #navProfile {
 }
 
 
+/* =====================================================
+   PROFILE IMAGE VISIBILITY SYSTEM (FINAL & SAFE)
+   - Big photo on Home page
+   - Small photo in navbar on inner pages
+===================================================== */
+
+/* ---------- HERO PROFILE (BIG — HOME PAGE ONLY) ---------- */
+
+.hero-photo {
+  display: none;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.hero-photo img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid var(--bg-main);
+  outline: 3px solid var(--accent);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+  transition: transform 0.35s ease;
+}
+
+.hero-photo img:hover {
+  transform: scale(1.03);
+}
+
+/* Show BIG image only on home page */
+body.page-home .hero-photo {
+  display: flex;
+}
+
+/* ---------- NAVBAR PROFILE (SMALL — INNER PAGES ONLY) ---------- */
+
+.profile-mini {
+  display: none;
+  align-items: center;
+  margin-right: 12px;
+}
+
+.profile-mini img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+}
+
+/* Show mini profile only on inner pages */
+body.page-inner .profile-mini {
+  display: flex;
+}
+
+/* Force hide navbar image on home page */
+body.page-home .profile-mini {
+  display: none;
+}
+
+/* ---------- MOBILE ADJUSTMENT ---------- */
+
+@media (max-width: 768px) {
+  .hero-photo img {
+    width: 220px;
+    height: 220px;
+  }
+}
+
 
 
 
