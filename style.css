@@ -1178,6 +1178,28 @@ body.inner-page .hero-photo img {
   pointer-events: none;
 }
 
+/* Page fade animation */
+body {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+body.page-fade-out {
+  opacity: 0;
+}
+
+/* Home vs inner page image behavior */
+body.page-home .hero-photo {
+  opacity: 1;
+  transform: scale(1);
+}
+
+body.page-inner .hero-photo {
+  opacity: 0;
+  transform: scale(0.6);
+  pointer-events: none;
+}
+
 
 
 
