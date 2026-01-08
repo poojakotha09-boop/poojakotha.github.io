@@ -1093,6 +1093,31 @@ body.light .hero-photo img {
   display: block;
 }
 
+/* =====================================
+   PROFILE IMAGE — PAGE AWARE
+===================================== */
+
+/* Hidden by default */
+.profile-mini {
+  display: none;
+}
+
+/* Small profile image */
+.profile-mini img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent);
+}
+
+/* Show ONLY on non-home pages */
+body.inner-page .profile-mini {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 
 
 
