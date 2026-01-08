@@ -131,22 +131,6 @@ document.addEventListener("click", e => {
   }
 });
 
-/* =====================================================
-   PAGE CONTEXT DETECTION
-   (Home vs Inner Pages)
-===================================================== */
-function detectPageContext() {
-  const body = document.body;
-  const page = window.location.pathname.split("/").pop();
-
-  if (page === "" || page === "index.html") {
-    body.classList.add("home-page");
-    body.classList.add("page-home");
-  } else {
-    body.classList.add("inner-page");
-    body.classList.add("page-inner");
-  }
-}
 
 /* =========================================
    PAGE TRANSITION FADE (SAFE VERSION)
@@ -184,7 +168,8 @@ document.querySelectorAll("a[href]").forEach(link => {
 
 
 /* =========================================
-   PAGE-AWARE HERO TRANSITION
+   PAGE-AWARE PROFILE SIZE CONTROL
+   (ADD THIS AT THE VERY BOTTOM)
 ========================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -199,4 +184,5 @@ document.addEventListener("DOMContentLoaded", () => {
     body.classList.remove("page-home");
   }
 });
+
 
