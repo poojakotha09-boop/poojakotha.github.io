@@ -119,3 +119,25 @@ function bindUIEvents() {
     });
   });
 }
+
+/* =====================================
+   RESUME ACTION HANDLING (INTERVIEW SAFE)
+===================================== */
+
+document.addEventListener("click", (e) => {
+  const action = e.target.dataset.action;
+  if (!action) return;
+
+  if (action === "view-resume") {
+    window.open("UshaKothaResume.pdf", "_blank");
+  }
+
+  if (action === "download-resume") {
+    const link = document.createElement("a");
+    link.href = "UshaKothaResume.pdf";
+    link.download = "UshaKothaResume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+});
