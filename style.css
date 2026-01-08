@@ -515,14 +515,15 @@ body.light .btn-primary:hover {
 }
 
 .hero-photo img {
-  width: 180px;
-  height: 180px;
+  width: 260px;        /* ⬅ Bigger circle */
+  height: 260px;       /* ⬅ Bigger circle */
   object-fit: cover;
   border-radius: 50%;
-  border: 3px solid var(--accent);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  border: 4px solid var(--accent);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
   transition: transform 0.3s ease;
 }
+
 
 .hero-photo img:hover {
   transform: scale(1.05);
@@ -548,3 +549,4 @@ body.light .hero-photo img {
     height: 150px;
   }
 }
+
