@@ -1368,8 +1368,8 @@ body.page-home #heroProfile {
 }
 
 body.page-home #heroProfile img {
-  width: 700px;
-  height: 700px;
+  width: 1000px;
+  height: 1000px;
   border-radius: 50%;
   border: 6px solid var(--bg-main);
   outline: 3px solid var(--accent);
@@ -1397,6 +1397,7 @@ body.page-inner #navProfile img {
   border-radius: 50%;
   border: 2px solid var(--accent);
 }
+
 
 
 
