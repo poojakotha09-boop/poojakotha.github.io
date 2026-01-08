@@ -141,3 +141,14 @@ document.addEventListener("click", (e) => {
     document.body.removeChild(link);
   }
 });
+
+/* =====================================
+   PAGE CONTEXT DETECTION
+===================================== */
+
+const body = document.body;
+const path = window.location.pathname;
+
+if (!path.includes("index")) {
+  body.classList.add("inner-page");
+}
