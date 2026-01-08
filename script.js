@@ -152,3 +152,18 @@ const path = window.location.pathname;
 if (!path.includes("index")) {
   body.classList.add("inner-page");
 }
+
+
+/* =====================================
+   PAGE-AWARE PROFILE TRANSITION
+===================================== */
+
+const body = document.body;
+const path = window.location.pathname;
+
+if (path.includes("index") || path === "/" || path === "") {
+  body.classList.add("home-page");
+} else {
+  body.classList.add("inner-page");
+}
+
