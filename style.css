@@ -1351,6 +1351,53 @@ body.page-home .profile-mini {
   }
 }
 
+/* =====================================================
+   PROFILE TRANSITION — BIG → SMALL (WOW EFFECT)
+===================================================== */
+
+/* Shared animation */
+#heroProfile img,
+#navProfile img {
+  transition: all 0.6s ease;
+}
+
+/* HOME PAGE — BIG PROFILE */
+body.page-home #heroProfile {
+  display: flex;
+  justify-content: center;
+}
+
+body.page-home #heroProfile img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 6px solid var(--bg-main);
+  outline: 3px solid var(--accent);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+}
+
+/* Hide navbar image on home */
+body.page-home #navProfile {
+  display: none;
+}
+
+/* INNER PAGES — SMALL PROFILE IN NAVBAR */
+body.page-inner #heroProfile {
+  display: none;
+}
+
+body.page-inner #navProfile {
+  display: flex;
+  align-items: center;
+}
+
+body.page-inner #navProfile img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+}
+
 
 
 
