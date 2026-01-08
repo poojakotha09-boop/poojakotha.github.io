@@ -148,20 +148,31 @@ function detectPageContext() {
   }
 }
 
-/* =====================================================
-   PAGE TRANSITION FADE (INTERNAL LINKS ONLY)
-===================================================== */
+/* =========================================
+   PAGE TRANSITION FADE (SAFE VERSION)
+========================================= */
+
 document.querySelectorAll("a[href]").forEach(link => {
   const href = link.getAttribute("href");
 
+  // ❌ Skip resume actions
+  if (link.dataset.resume) return;
+
+  // ❌ Skip new tabs & downloads
+  if (link.hasAttribute("download")) return;
+  if (link.getAttribute("target") === "_blank") return;
+
+  // Only internal HTML navigation
   if (
     href &&
     !href.startsWith("#") &&
     !href.startsWith("http") &&
-    !href.startsWith("mailto")
+    !href.startsWith("mailto") &&
+    href.endsWith(".html")
   ) {
     link.addEventListener("click", e => {
       e.preventDefault();
+
       document.body.classList.add("page-fade-out");
 
       setTimeout(() => {
