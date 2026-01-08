@@ -1,65 +1,121 @@
 /* =====================================================
-   THEME TOGGLE — CLEAN & RELIABLE
+   GLOBAL STATE
 ===================================================== */
+const STATE = {
+  theme: localStorage.getItem("theme") || "dark",
+  resumePath: "KothaUshaResume.pdf"
+};
 
+/* =====================================================
+   INITIALIZATION
+===================================================== */
 document.addEventListener("DOMContentLoaded", () => {
-  const body = document.body;
-  const themeToggle = document.getElementById("themeToggle");
+  applyTheme();
+  bindUIEvents();
+});
 
-  if (!themeToggle) return;
-
-  // Load saved theme
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "light") {
-    body.classList.add("light");
-    themeToggle.textContent = "🌙";
+/* =====================================================
+   THEME LOGIC
+===================================================== */
+function applyTheme() {
+  if (STATE.theme === "light") {
+    document.body.classList.add("light");
   } else {
-    themeToggle.textContent = "☀";
+    document.body.classList.remove("light");
+  }
+}
+
+function toggleTheme() {
+  document.body.classList.toggle("light");
+
+  STATE.theme = document.body.classList.contains("light")
+    ? "light"
+    : "dark";
+
+  localStorage.setItem("theme", STATE.theme);
+}
+
+/* =====================================================
+   RESUME HANDLING (PROBLEM-SOLVING LOGIC)
+===================================================== */
+function handleResume(action) {
+  if (!STATE.resumePath) {
+    console.error("Resume path not found");
+    return;
   }
 
-  // Toggle theme
-  themeToggle.addEventListener("click", () => {
-    body.classList.toggle("light");
+  switch (action) {
+    case "view":
+      window.open(STATE.resumePath, "_blank");
+      break;
 
-    const isLight = body.classList.contains("light");
-    localStorage.setItem("theme", isLight ? "light" : "dark");
-    themeToggle.textContent = isLight ? "🌙" : "☀";
-  });
-});
+    case "download":
+      downloadFile(STATE.resumePath, "KothaUshaResume.pdf");
+      break;
 
-/* =====================================================
-   MICRO HOVER GLOW — SKILLS / PROJECTS
-===================================================== */
+    default:
+      console.warn("Unknown resume action:", action);
+  }
+}
 
-document.querySelectorAll(".skill-card").forEach(card => {
-  card.addEventListener("mousemove", e => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    card.style.background = `
-      radial-gradient(
-        600px circle at ${x}px ${y}px,
-        rgba(127, 227, 195, 0.22),
-        transparent 40%
-      ),
-      var(--bg-secondary)
-    `;
-  });
-
-  card.addEventListener("mouseleave", () => {
-    card.style.background = "var(--bg-secondary)";
-  });
-});
+function downloadFile(path, filename) {
+  const link = document.createElement("a");
+  link.href = path;
+  link.download = filename;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
 
 /* =====================================================
-   CONTACT CARD CURSOR GLOW
+   SKILL FILTERING (DSA + DOM LOGIC)
 ===================================================== */
+function filterSkills(level) {
+  const cards = document.querySelectorAll(".skill-card");
 
-document.querySelectorAll(".contact-card").forEach(card => {
-  card.addEventListener("mousemove", e => {
-    const rect = card.getBoundingClientRect();
-    card.style.setProperty("--x", `${e.clientX - rect.left}px`);
-    card.style.setProperty("--y", `${e.clientY - rect.top}px`);
+  cards.forEach(card => {
+    const skillLevel = card.dataset.level;
+
+    if (level === "all" || skillLevel === level) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
   });
-});
+}
+
+/* =====================================================
+   UTILITY FUNCTIONS
+===================================================== */
+function openExternalLink(url) {
+  if (!url) {
+    console.error("Invalid URL");
+    return;
+  }
+  window.open(url, "_blank", "noopener");
+}
+
+/* =====================================================
+   EVENT BINDING (CLEAN & SCALABLE)
+===================================================== */
+function bindUIEvents() {
+  /* Theme Toggle */
+  const themeBtn = document.querySelector(".theme-toggle");
+  if (themeBtn) {
+    themeBtn.addEventListener("click", toggleTheme);
+  }
+
+  /* Resume Buttons */
+  document.querySelectorAll("[data-resume]").forEach(btn => {
+    btn.addEventListener("click", e => {
+      handleResume(e.target.dataset.resume);
+    });
+  });
+
+  /* Skill Filter Buttons */
+  document.querySelectorAll("[data-filter]").forEach(btn => {
+    btn.addEventListener("click", e => {
+      filterSkills(e.target.dataset.filter);
+    });
+  });
+}
