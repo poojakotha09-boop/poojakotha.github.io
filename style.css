@@ -1300,12 +1300,14 @@ body.page-inner #navProfile {
   width: 300px;
   height: 300px;
   object-fit: cover;
+  object-position: center top; /* FIX: keeps head visible */
   border-radius: 50%;
   border: 6px solid var(--bg-main);
   outline: 3px solid var(--accent);
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
   transition: transform 0.35s ease;
 }
+
 
 .hero-photo img:hover {
   transform: scale(1.03);
@@ -1325,12 +1327,14 @@ body.page-home .hero-photo {
 }
 
 .profile-mini img {
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
+  object-fit: cover;
+  object-position: center top; /* FIX */
   border: 2px solid var(--accent);
 }
+
 
 /* Show mini profile only on inner pages */
 body.page-inner .profile-mini {
@@ -1397,6 +1401,7 @@ body.page-inner #navProfile img {
   border-radius: 50%;
   border: 2px solid var(--accent);
 }
+
 
 
 
